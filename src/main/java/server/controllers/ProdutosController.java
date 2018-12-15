@@ -1,7 +1,5 @@
 package server.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,13 +20,26 @@ public class ProdutosController {
 	public ModelAndView list() {
 		ModelAndView mv = new ModelAndView("produtos/list");
 		
-		List<Produto> findAll = produtoDAO.findAll();
-		
-		findAll.stream().forEach(produto -> System.out.println(produto));
-		
 		mv.addObject("produtos", produtoDAO.findAll()); 
 
 		return mv;
 
 	}
+	
+	@RequestMapping(value="/form", method=RequestMethod.GET)
+	public ModelAndView form() {
+		return new ModelAndView("produtos/form");
+	}
+	
+	@RequestMapping(value="/form", method=RequestMethod.POST)
+	public ModelAndView save(Produto produto) {
+		produtoDAO.save(produto);
+		
+		return new ModelAndView("redirect:/produtos");
+		
+	}
+	
+	
+	
+	
 }
