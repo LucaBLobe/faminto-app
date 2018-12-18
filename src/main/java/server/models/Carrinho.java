@@ -22,4 +22,8 @@ public class Carrinho {
 	public List<Produto> get() {
 		return carrinho;
 	}
+	public void remove(Integer idProduto) {
+		carrinho.removeIf(produto -> idProduto.equals(produto.getId()));
+		
+	}
 }
