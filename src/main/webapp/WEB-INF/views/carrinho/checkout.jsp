@@ -65,35 +65,35 @@
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Data de Nascimento</label> <input
-						type="date" class="form-control" id="inputPassword4">
+						type="date" class="form-control" id="inputPassword4" name="dataNascimento">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputAddress">Endereço</label> <input type="text"
-					class="form-control" id="inputAddress" placeholder="Rua...">
+					class="form-control" id="inputAddress" placeholder="Rua..." name="endereço">
 			</div>
 
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputCity">Cidade</label> <input type="text"
-						class="form-control" id="inputCity">
+						class="form-control" id="inputCity" name="cidade">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="inputState">Estado</label> <select id="inputState"
-						class="form-control">
+						class="form-control" name="estado">
 						<option selected>Santa Catarina</option>
 					</select>
 				</div>
 				<div class="form-group col-md-2">
 					<label for="inputZip">CEP</label> <input type="number"
-						class="form-control" id="inputZip">
+						class="form-control" id="inputZip" name="cep">
 				</div>
 				<div class="form-group">
 					<label for="inputdip">Metodo de Pagamento</label>
-					<select id="inputdip" class="form-control">
-						<option selected value="DINHEIRO"></option>
-						<option selected value="CARTÃO_CREDITO"></option>
-						<option selected value="VALE_ALIMENTACAO"></option>
+					<select id="inputdip" class="form-control" name=metodoPagamento>
+						<option selected value="DINHEIRO">Dinheiro</option>
+						<option value="CARTAO_CREDITO">Cartão de Crédito</option>
+						<option value="VALE_ALIMENTACAO">Vale Alimentação</option>
 					</select>
 				</div>
 				
@@ -102,16 +102,16 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Comfirmar</button>
 
-		<script>
-		
-		function removerItem(idProduto, index) {
-			$.post('/carrinho/remove', {'idProduto' : idProduto}, function() {
-				$('#Linha_'+ index).hide();
-			});
-		}
-		
-		</script>
 	</form>
+	<script>
+	
+	function removerItem(idProduto, index) {
+		$.post('/carrinho/remove', {'idProduto' : idProduto}, function() {
+			$('#Linha_'+ index).hide();
+		});
+	}
+	
+	</script>
 	<script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </html>
