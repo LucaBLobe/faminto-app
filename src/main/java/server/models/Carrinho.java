@@ -26,4 +26,8 @@ public class Carrinho {
 		carrinho.removeIf(produto -> idProduto.equals(produto.getId()));
 		
 	}
+	public void clear() {
+		carrinho.clear();
+		
+	}
 }
